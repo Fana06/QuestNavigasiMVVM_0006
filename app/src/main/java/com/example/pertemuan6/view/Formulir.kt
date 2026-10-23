@@ -1,9 +1,11 @@
 package com.example.pertemuan6.view
 
+import android.R.attr.onClick
 import android.R.attr.text
 import android.R.attr.thickness
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.DividerDefaults.Thickness
@@ -54,7 +56,14 @@ fun FormIsian(
                 .width(250.dp), thickness = Thickness,color = Color.Red)
             Row{
                 jenisK.forEach {
-
+                        item->
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        RadioButton(
+                            selected = false,
+                            onClick = {item}
+                        )
+                        Text(text = item)
+                    }
                 }
             }
             )
