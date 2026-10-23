@@ -1,4 +1,4 @@
-package com.example.pertemuan6.view
+package com.example.pertemuan6
 
 import android.R.attr.padding
 import androidx.compose.foundation.layout.padding
@@ -10,6 +10,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.pertemuan6.view.TampilData
 
 enum class Navigasi {
     FormulirSaya,
@@ -27,7 +28,7 @@ fun DataApp(
 
             modifier = Modifier.padding(paddingValues = isiRuang)){
             composable(route = Navigasi.FormulirSaya.name){
-                FormIsian (
+                _root_ide_package_.com.example.pertemuan6.view.FormIsian(
                     //pilihanJK = JenisK.map { id -> context.resources.getString(id) },
                     OnSubmitBtnClick = {
                         navController.navigate(Navigasi.Detail.name)
@@ -35,6 +36,9 @@ fun DataApp(
                 )
             }
             composable(route = Navigasi.Detail.name){
+                TampilData(
+                    onBackBtnClick = {cancelAndBackToFormulirSaya(navController) }
+                )
             }
         }
     }
